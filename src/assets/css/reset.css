@@ -10,14 +10,16 @@
 html{
   font-size: 14px;
   font-family: "Microsoft YaHei", "微软雅黑", "Arial", "sans-serif";
-  colo:#333;
-  background-color: #FFFFFF;
+  color:#333;
+  background-color: #f4f4f4;
   /*阻止旋转屏幕时自动调整字体大小*/
   -webkit-text-size-adjust: 100%;
 }
 html, body {
-  width: 100%;
+  /*width: 100%;*/
   height: 100%;
+  margin: 0;
+  padding: 0;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   /* 解决IOS默认滑动很卡的情况 */
@@ -47,7 +49,7 @@ address, cite, code, em, th {
 a {
   text-decoration: none;
   cursor: pointer;
-  color: #409EFF;
+  color: #4170ff;
 }
 
 a:link {
@@ -87,6 +89,7 @@ img {
   border: 0;
   /*border: none;*/
   vertical-align: middle;
+  background: #fff;
 }
 
 input, select {
@@ -121,7 +124,9 @@ sub {
   vertical-align: text-bottom;
 }
 
-span, article, aside, details, figcaption, figure, footer, header, menu, nav, section {
+ article, aside, details, figcaption, figure, footer, header, menu, nav, section {
   display: block;
 }
-
+span,img{
+  display: inline-block;
+}

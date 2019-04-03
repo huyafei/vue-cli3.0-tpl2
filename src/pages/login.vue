@@ -1,18 +1,77 @@
 <template>
-	<div class="">
-		<a href="" class="a">11111</a>
-		<el-button type="primary">主要按钮</el-button>
+	<div class="login flex-c">
+		<div class="login_box flex-r">
+			<div class="login_box_lf flex-c">
+				<div class="welcome  fz-cl-white">
+					<span class="fz-18">欢迎来到</span>
+					<p class="fz-36">宇航人社交电商</p>
+				</div>
+			</div>
+			<div class="login_box_rt">
+				<el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="0">
+					<el-form-item label="">
+						<h2 class="text-align-center">登录</h2>
+					</el-form-item>
+					<el-form-item label="" prop="name">
+						<el-input v-model="ruleForm.name"  placeholder="请输入手机号码">
+							<i slot="prefix" class="iconfont icon-phone"></i>
+						</el-input>
+					</el-form-item>
+					<el-form-item label="" prop="password">
+						<el-input v-model="ruleForm.password" type="password"  placeholder="请输入密码">
+							<i slot="prefix" class="iconfont icon-password" ></i>
+						</el-input>
+					</el-form-item>
+					<div class="remember flex-r">
+						<el-checkbox v-model="checked">记住密码</el-checkbox>
+						<!--<a>找回密码</a>-->
+					</div>
+					<el-form-item>
+						<el-button type="primary"  class="login--btn" @click="submit('ruleForm')">登录</el-button>
+					</el-form-item>
+					<div class="account--oper text-align-center fz-12" v-if="true">
+						<span class="fz-cl-light">没有注册?</span>
+						<a class="fz-cl-main" @click="jumpPage('/register')">立即注册</a>
+					</div>
+				</el-form>
+			</div>
+		</div>
+
 	</div>
 </template>
 <script>
-  import $ from  'jquery'
+  import $ from 'jquery'
 
   export default {
     name: 'Login',
     components: {},
     props: {},
     data() {
-      return {}
+      const phoneCodeVerify = (rule, value, callback) => {
+        if (!value) {
+          return callback(new Error('请输入手机号码'));
+        }else if (/^[0-9]{11}$/.test(value)===false) {
+          return callback(new Error('请输入正确格式的11位手机号码'));
+        }else {
+          callback();
+        }
+
+      };
+      return {
+        ruleForm: {
+          name: '',
+          password:''
+        },
+        checked:true,
+        rules: {
+          name: [
+            { required: true,  validator: phoneCodeVerify, trigger: 'blur' },
+          ],
+          password:[
+            { required: true, message: '请输入密码', trigger: 'blur' },
+          ]
+        }
+      }
     },
     //计算属性
     computed: {},
@@ -30,11 +89,25 @@
     deactivated() {
     },
     //方法
-    methods: {}
+    methods: {
+      submit(formName){
+        this.$refs[formName].validate((valid) => {
+          if (valid) {
+            alert('submit!');
+            this.$router.push('/platform/overview')
+          } else {
+            console.log('error submit!!');
+            return false;
+          }
+        });
+      },
+      jumpPage(url){
+        this.$router.push({path:url,query:{}})
+      }
+    }
   }
 </script>
+
 <style scoped lang="scss">
-	.a{
-		color:$main-color;
-	}
+
 </style>
