@@ -2,8 +2,6 @@ import axios from 'axios'
 import router from '../router/index'
 import Cookies from 'js-cookie'
 
-
-
 //request header 根据需求添加
 // axios.defaults.baseURL = 'http://test.178lottery.com';
 // axios.defaults.headers.post['encryptDisable'] = true;
@@ -12,9 +10,10 @@ import Cookies from 'js-cookie'
 // 添加请求拦截器
 axios.interceptors.request.use(function (config) {
   //全局加token
-  // if(Cookies.get('authenticationToken')){
-  //   config.headers.Authorization="Bearer "+Cookies.get('authenticationToken');
-  // }
+  let token=localStorage.getItem('token');
+  if(token){
+    config.headers.Authorization=token;
+  }
   return config;
 }, function (error) {
   // 对请求错误做些什么

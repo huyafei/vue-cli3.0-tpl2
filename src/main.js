@@ -10,10 +10,6 @@ import axios from './api/fetch'
 Vue.prototype.$ajax = axios
 Vue.config.productionTip = false
 
-import Element from 'element-ui'
-import './assets/styles/element-variables.scss'
-
-Vue.use(Element)
 
 
 //font
@@ -23,6 +19,14 @@ import './assets/css/custom-global.css'
 //styles
 import './assets/styles/index.scss'
 import 'font-awesome/scss/font-awesome.scss'
+
+
+import ElementUI from 'element-ui';
+
+import './assets/styles/element-variables.scss'
+
+Vue.use(ElementUI)
+
 
 // router.beforeEach((to, from, next) => {
 //   NProgress.start();
