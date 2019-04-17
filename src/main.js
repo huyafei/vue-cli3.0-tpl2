@@ -30,6 +30,7 @@ Vue.use(ElementUI)
 
 // router.beforeEach((to, from, next) => {
 //   NProgress.start();
+//   next()
 // })
 //
 // router.afterEach(transition => {
