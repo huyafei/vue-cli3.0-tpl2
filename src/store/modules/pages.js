@@ -1,4 +1,4 @@
-import {findElem} from '../../fn/_fn'
+import {findElem} from '../../utils/fn'
 //基本一级页面配置 顶部导航及左侧可显示菜单
 //name，url不要重复
 /*

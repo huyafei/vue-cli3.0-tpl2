@@ -106,8 +106,8 @@
               }
             }).then(res => {
               console.log(res)
-              if (res.status === 200 && res.data.id_token) {
-	              localStorage.setItem('token',"Bearer " + res.data.id_token)
+              if (res.status === 200 && res.data.content.id_token) {
+	              localStorage.setItem('token',"Bearer " + res.data.content.id_token)
                 // Cookies.set('token',"Bearer " + res.data.id_token,new Date(new Date().getTime()*30))
                 this.$message.success("登录成功");
                 this.$store.dispatch('getUserInfo');

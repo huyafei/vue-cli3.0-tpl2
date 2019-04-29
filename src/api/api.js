@@ -1,7 +1,7 @@
 /**
  * Created by shi on 2018/10/11.
  */
-export const baseUrl = 'https://yuhangren-api.easyapi.com'
+export const baseUrl = 'https://api.yhryj8.com'
 
 //登录
 export const authenticateUrl = `${baseUrl}/api/authenticate`;
