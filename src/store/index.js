@@ -11,7 +11,9 @@ export default new Vuex.Store({
     user,
     pages
   },
-  state: {},
+  state: {
+    projectName:'智能家居后台'
+  },
   mutations: {},
   actions: {},
   getters

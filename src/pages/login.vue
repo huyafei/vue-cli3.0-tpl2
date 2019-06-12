@@ -4,7 +4,7 @@
 			<div class="login_box_lf flex-c">
 				<div class="welcome  fz-cl-white">
 					<span class="fz-18">欢迎来到</span>
-					<p class="fz-36">宇航人社交电商</p>
+					<p class="fz-36">{{$store.state.projectName}}</p>
 				</div>
 			</div>
 			<div class="login_box_rt">
@@ -105,7 +105,7 @@
                 rememberMe: this.rememberMe
               }
             }).then(res => {
-              console.log(res)
+
               if (res.status === 200 && res.data.content.id_token) {
 	              localStorage.setItem('token',"Bearer " + res.data.content.id_token)
                 // Cookies.set('token',"Bearer " + res.data.id_token,new Date(new Date().getTime()*30))

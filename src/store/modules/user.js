@@ -26,7 +26,7 @@ const user = {
         method: 'get',
         url: accountUrl,
       }).then(res => {
-        console.log(res)
+
         let userInfoData = res.data;
         commit('SET_USERNAME', userInfoData.username)
         commit('SET_USERINFO', userInfoData)

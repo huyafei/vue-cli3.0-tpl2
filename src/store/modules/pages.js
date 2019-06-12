@@ -2,343 +2,88 @@ import {findElem} from '../../utils/fn'
 //基本一级页面配置 顶部导航及左侧可显示菜单
 //name，url不要重复
 /*
-* title标题
-* name routername
-* icon 图标class
-* url  路径
+* 一级对象：
+* title  header标题
+* url  父级path路径
+* name 父级name
+* sons 侧边子路由信息 分块
+* 二级对象：
+* title 侧边大标题
+* sons  具体子路由平级信息例如 列表和列表详情页面
+* 可添加icon
+* 三级对象：
+* title 侧边子路由标题
+* url   子路由path路径
+* name  子路由name
+* icon 图标预设class
+*
 * */
 
 let list = [
   {
-    title: "平台",
-    url: '/platform',
-    name: 'Platform',
+    title: "管理中心",
+    url: '/center',
+    name: 'Center',
     sons: [
       {
-        title: '平台概况',
+        title: '管理中心',
         sons: [
           {
-            title: "平台概况",
-            url: '/platform/overview',
-            name: 'Overview',
-            icon:''
+            title: "管理首页",
+            url: '/center/index',
+            name: 'CenterIndex',
+            icon: ''
           }
         ]
       },
       {
-        title: '会员管理',
+        title: '用户管理',
         sons: [
           {
-            title: "会员管理",
-            url: '/platform/vip',
-            name: 'Vip',
-            icon:'icon-member1'
+            title: "用户列表",
+            url: '/center/user-list',
+            name: 'UserList',
+            icon: 'icon-member1'
           },
-          {
-            title: "代理商列表",
-            url: '/platform/agent',
-            name: 'Agent',
-            icon:'icon-agent'
-          }
         ]
       },
       {
-        title: '内容管理',
+        title: '家庭管理',
         sons: [
           {
-            title: "广告位管理",
-            url: '/platform/advertising',
-            name: 'Advertising',
-            icon:'icon-ad1'
-          },
-          {
-            title: "文章管理",
-            url: '/platform/article',
-            name: 'Article',
-            icon:'icon-article'
-          },
-          {
-            title: "消息推送",
-            url: '/platform/message',
-            name: 'Message',
-            icon:'icon-notification\n'
-          }
-        ]
-      }
-    ]
-  },
-  {
-    title: "商城",
-    url: '/store',
-    name: 'Store',
-    sons: [
-      {
-        title: '商品管理',
-        sons: [
-          {
-            title: "商品列表",
-            url: '/store/product-list',
-            name: 'ProductList',
-            icon:"",
-          },
-          {
-            title: "商品分类",
-            url: '/store/classify',
-            name: 'Classify',
-            icon:"",
-          },
-          {
-            title: "评论管理",
-            url: '/store/comment',
-            name: 'Comment',
-            icon:"",
-          },
-          {
-            title: "品牌管理",
-            url: '/store/brand',
-            name: 'Brand',
-            icon:"",
-          },
-          {
-            title: "属性管理",
-            url: '/store/attribute',
-            name: 'Attribute',
-            icon:"",
-          },
-          {
-            title: "商品分组",
-            url: '/store/group',
-            name: 'Group',
-            icon:"",
-          },
-          {
-            title: "物流管理",
-            url: '/store/logistics',
-            name: 'Logistics',
-            icon:"",
-          }
-        ]
-      },
-      {
-        title: "订单管理",
-        sons: [
-          {
-            title: "订单列表",
-            url: '/store/order-list',
-            name: 'OrderList',
-            icon:"",
-          },
-          {
-            title: "营销活动订单",
-            url: '/store/marketing-order-list',
-            name: 'MarketingOrderList',
-            icon:"",
-          },
-          {
-            title: "交易记录",
-            url: '/store/record',
-            name: 'Record',
-            icon:"",
-          }
-        ]
-      },
-      {
-        title: "店铺管理",
-        sons: [
-          {
-            title: "店铺列表",
-            url: '/store/store-list',
-            name: 'StoreList',
-            icon:"",
-          },
-          {
-            title: "补助设置",
-            url: '/store/subsidy',
-            name: 'Subsidy',
-            icon:"",
-          }
-        ]
-      },
-      {
-        title: "供应商管理",
-        sons: [
-          {
-            title: "供应商列表",
-            url: '/store/supplier-list',
-            name: 'SupplierList',
-            icon:"",
-          },
-          {
-            title: "供应商统计",
-            url: '/store/statistics',
-            name: 'Statistics',
-            icon:"",
-          },
-          {
-            title: "供应商商品",
-            url: '/store/supplier-product',
-            name: 'SupplierProduct',
-            icon:"",
-          },
-          {
-            title: "合同管理",
-            url: '/store/compact',
-            name: 'Compact',
-            icon:"",
-          },
-          {
-            title: "资质管控",
-            url: '/store/quality',
-            name: 'Quality',
-            icon:"",
-          },
-        ]
-      }
-    ]
-  },
-
-
-  {
-    title: "营销",
-    url: '/',
-    sons: [
-      {
-        title: "营销管理",
-        sons: [
-          {
-            title: "营销中心",
-            url: '/'
-          },
-          {
-            title: "优币营销",
-            url: '/'
-          },
-          {
-            title: "拼团活动",
-            url: '/'
-          },
-          {
-            title: "优惠券营销",
-            url: '/'
-          },
-          {
-            title: "充值营销",
-            url: '/'
+            title: "家庭列表",
+            url: '/center/family-list',
+            name: 'FamilyList',
+            icon: 'icon-member1'
           },
         ]
       },
     ]
   },
-  {
-    title: "财务",
-    url: '/'
-  },
-  {
-    title: "统计",
-    url: '/'
-  },
-  {
-    title: "系统",
-    url: '/'
-  }
+
+
 ];
-//扩展页面配置【配置跳转页面选中相应name】
+/*
+*
+* 扩展页面配置【配置跳转页面选中相应name】
+* name String 为路由中的子路由name
+* list Arr 当前子路由平级的子路由path列表
+* */
+
 let extend = [
-  //平台
+  //管理中心
   {
-    name: 'Overview',
-    list: ['/platform/overview']
+    name: 'CenterIndex',
+    list: ['/center/index']
   },
   {
-    name: 'Vip',
-    list: ['/platform/vip']
+    name: 'UserList',
+    list: ['/center/user-list']
   },
   {
-    name: 'Agent',
-    list: ['/platform/agent']
+    name: 'FamilyList',
+    list: ['/center/family-list']
   },
-  {
-    name: 'Advertising',
-    list: ['/platform/advertising']
-  },
-  {
-    name: 'Article',
-    list: ['/platform/article']
-  },
-  {
-    name: 'Message',
-    list: ['/platform/message']
-  },
-  //商城
-  {
-    name: 'ProductList',
-    list: ['/store/product-list', '/store/product-add']
-  },
-  {
-    name: 'Classify',
-    list: ['/store/classify']
-  },
-  {
-    name: 'Comment',
-    list: ['/store/comment']
-  },
-  {
-    name: 'Brand',
-    list: ['/store/brand']
-  },
-  {
-    name: 'Attribute',
-    list: ['/store/attribute']
-  },
-  {
-    name: 'Group',
-    list: ['/store/group']
-  },
-  {
-    name: 'Logistics',
-    list: ['/store/logistics']
-  },
-  {
-    name: 'OrderList',
-    list: ['/store/order-list']
-  },
-  {
-    name: 'MarketingOrderList',
-    list: ['/store/marketing-order-list']
-  },
-  {
-    name: 'Record',
-    list: ['/store/record']
-  },
-  {
-    name: 'StoreList',
-    list: ['/store/store-list']
-  },
-  {
-    name: 'Subsidy',
-    list: ['/store/subsidy']
-  },
-  {
-    name: 'SupplierList',
-    list: ['/store/supplier-list']
-  },
-  {
-    name: 'Statistics',
-    list: ['/store/statistics']
-  },
-  {
-    name: 'SupplierProduct',
-    list: ['/store/supplier-product']
-  },
-  {
-    name: 'Compact',
-    list: ['/store/compact']
-  },
-  {
-    name: 'Quality',
-    list: ['/store/quality']
-  },
-  //营销
 ];
 
 const pages = {

@@ -4,7 +4,7 @@
 			<div class="register_box_lf flex-c">
 				<div class="welcome  fz-cl-white">
 					<span class="fz-18">欢迎来到</span>
-					<p class="fz-36">宇航人社交电商</p>
+					<p class="fz-36">{{$store.state.projectName}}</p>
 				</div>
 			</div>
 			<div class="register_box_rt">
@@ -103,7 +103,7 @@
     methods: {
       //提交注册
       submit(formName){
-        console.log(1)
+
         this.$refs[formName].validate((valid) => {
           if (valid) {
             alert('submit!');

@@ -3,7 +3,7 @@
 		<div class="header_logo flex-r">
 			<img src="" alt="">
 			<span class="fz-14">
-				宇航人社交电商平台
+				{{$store.state.projectName}}
 			</span>
 		</div>
 		<div class="header_navbar flex-r">
