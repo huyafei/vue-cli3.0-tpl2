@@ -102,14 +102,14 @@ ul, li, ol {
 
 table {
   /*width: 500px;*/
-  border-collapse: collapse;
-  border-spacing: 0;
-  table-layout: fixed;
-  border: 1px solid #909399;
+  /*border-collapse: collapse;*/
+  /*border-spacing: 0;*/
+  /*table-layout: fixed;*/
+  /*border: 1px solid #909399;*/
 }
 
 table th {
-  border-bottom: 1px solid #909399;
+  /*border-bottom: 1px solid #909399;*/
 }
 
 table td {
