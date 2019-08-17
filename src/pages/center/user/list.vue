@@ -10,8 +10,9 @@
 				<el-table
 					border
 					size="small"
-					:data="tableData"
 					header-row-class-name="table-header--gray"
+					:data="tableData"
+
 					v-loading="loading"
 					element-loading-text="正在加载中"
 					style="width: 100%">
